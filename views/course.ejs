@@ -1,37 +1,240 @@
 <%- include('./header.ejs')%>
-<div id="course" class="container">
-  <h2 class="text-center text-primary fs-2">Course's</h2>
+<div class="container mt-5 pt-5">
   <div class="row">
-    <div class="col-md-4 course">
-      <img
-        src="./image/advance-java-training-in-khanna.jpg"
-        alt="Course Image"
-        class="course-img"
-      />
-      <h3>Course Java 1</h3>
-      <p>Description for Course 1 goes here...</p>
-      <a href="./purchagepage" class="btn btn-primary register-btn">Purchase</a>
+    <!-- B.Tech Course Card -->
+    <div class="col-md-4 course-card">
+      <div class="card">
+        <img src="./image/pexels-craig-adderley-2566121.jpg" class="card-img-top" alt="B.Tech Image">
+        <div class="card-body">
+          <h5 class="card-title">B.Tech</h5>
+          <p class="card-text">Engineering degree. In-depth technical knowledge. Four years duration.</p>
+         
+          <%if(btech){%>
+            <a class="btn btn-success" href="/collage_display">View Course</a>
+            <%}else{%>
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#btech">
+                Register
+              </button>
+
+              <%}%>
+          <!-- <a href="#" class="btn btn-primary"></a> -->
+        </div>
+      </div>
     </div>
-    <div class="col-md-4 course">
-      <img
-        src="./image/b-tech-bba-bca-mba-mca-consultant-500x500.webp"
-        alt="Course Image"
-        class="course-img"
-      />
-      <h3>Course B.Tech 2</h3>
-      <p>Description for Course 2 goes here...</p>
-      <a href="./purchagepage" class="btn btn-primary register-btn">Purchase</a>
+
+    <!-- BCA Course Card -->
+    <div class="col-md-4 course-card">
+      <div class="card">
+        <img src="./image/Course-2.jpeg" class="card-img-top" alt="BCA Image">
+        <div class="card-body">
+          <h5 class="card-title">BCA</h5>
+          <p class="card-text">Bachelor's in Computer Applications. Programming and software development focus.</p>
+          <%if(bca){%>
+            <a class="btn btn-success" href="/collage_display">View Course</a>
+            <%}else{%>
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#bca">
+                Register
+              </button>
+
+              <%}%>
+          <!-- <a href="#" class="btn btn-primary">Register</a> -->
+        </div>
+      </div>
     </div>
-    <div class="col-md-4 course">
-      <img
-        src="./image/pexels-lisa-fotios-1612.jpg"
-        alt="Course Image"
-        class="course-img w-50"
-      />
-      <h3>Course BCA 3</h3>
-      <p>Description for Course 3 goes here...</p>
-      <a href="./purchagepage" class="btn btn-primary register-btn">Purchase</a>
+
+    <!-- MCA Course Card -->
+    <div class="col-md-4 course-card">
+      <div class="card">
+        <img src="./image/Course-2.jpeg" class="card-img-top" alt="MCA Image">
+        <div class="card-body">
+          <h5 class="card-title">MCA</h5>
+          <p class="card-text">Master's in Computer Applications. Advanced software engineering skills.</p>
+          <%if(mca){%>
+            <a class="btn btn-success" href="/collage_display">View Course</a>
+            <%}else{%>
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#mca">
+                Register
+              </button>
+
+              <%}%>
+          <!-- <a href="#" class="btn btn-primary">Register</a> -->
+        </div>
+      </div>
     </div>
   </div>
 </div>
+<!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="btech" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">B.tech</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="/collageinsert" method="post">
+          <div class="mb-3">
+            <label>Name</label>
+            <input type="text" value="<%=n%>" name="name" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label>Email</label>
+            <input type="text" value="<%=e%>" name="email" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label>Phone No</label>
+            <input type="number" name="phone" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label>D.O.B</label>
+            <input type="date" name="dob" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label>Address</label>
+            <textarea name="address" class="form-control"></textarea>
+          </div>
+          <div class="mb-3">
+            <label>Gender</label>
+            <input type="radio" value="male" name="gender" />Male
+            <input type="radio" value="female" name="gender" />FeMale
+          </div>
+          <div class="mb-3">
+            <label>Education</label>
+            <select class="form-control" name="education">
+              <option>Select Collage</option>
+              <option value="10ht">10ht</option>
+              <option value="12th">12th</option>
+              <option value="Ab Collage">Ab Collage</option>
+              <option value="Cd Collage">Cd Collage</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label>Course</label>
+            <input type="btech" name="course" value="btech" readonly class="form-control">
+          </div>
+          <button type="submit" class="btn btn-info">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="bca" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">BCA</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="/collageinsert" method="post">
+          <div class="mb-3">
+            <label>Name</label>
+            <input type="text" value="<%=n%>" name="name" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label>Email</label>
+            <input type="text" value="<%=e%>" name="email" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label>Phone No</label>
+            <input type="number" name="phone" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label>D.O.B</label>
+            <input type="date" name="dob" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label>Address</label>
+            <textarea name="address" class="form-control"></textarea>
+          </div>
+          <div class="mb-3">
+            <label>Gender</label>
+            <input type="radio" value="male" name="gender" />Male
+            <input type="radio" value="female" name="gender" />FeMale
+          </div>
+          <div class="mb-3">
+            <label>Education</label>
+            <select class="form-control" name="education">
+              <option>Select Collage</option>
+              <option value="10ht">10ht</option>
+              <option value="12th">12th</option>
+              <option value="Ab Collage">Ab Collage</option>
+              <option value="Cd Collage">Cd Collage</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label>Course</label>
+            <input type="bca" name="course" value="bca" readonly class="form-control">
+          </div>
+          <button type="submit" class="btn btn-info">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="mca" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">MCA</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="/collageinsert" method="post">
+          <div class="mb-3">
+            <label>Name</label>
+            <input type="text" value="<%=n%>" name="name" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label>Email</label>
+            <input type="text" value="<%=e%>" name="email" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label>Phone No</label>
+            <input type="number" name="phone" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label>D.O.B</label>
+            <input type="date" name="dob" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label>Address</label>
+            <textarea name="address" class="form-control"></textarea>
+          </div>
+          <div class="mb-3">
+            <label>Gender</label>
+            <input type="radio" value="male" name="gender" />Male
+            <input type="radio" value="female" name="gender" />FeMale
+          </div>
+          <div class="mb-3">
+            <label>Education</label>
+            <select class="form-control" name="education">
+              <option>Select Collage</option>
+              <option value="10ht">10ht</option>
+              <option value="12th">12th</option>
+              <option value="Ab Collage">Ab Collage</option>
+              <option value="Cd Collage">Cd Collage</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label>Course</label>
+            <input type="mca" name="course" value="mca" readonly class="form-control">
+          </div>
+          <button type="submit" class="btn btn-info">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 <%- include('./footer.ejs')%>

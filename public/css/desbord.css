@@ -32,6 +32,17 @@
     height: auto;
     border-radius: 5%;
   }
+  .logout{
+    font-size: 20px;
+    border-radius: 15px;
+    text-align: center;
+    justify-content: center;
+    font-weight: 600;
+  }
+  .logout :hover{
+    background-color: #007bff;
+    cursor: pointer;
+  }
   .course {
     padding: 50px 0;
     text-align: center;
@@ -158,14 +169,21 @@
     max-width: 400px;
     width: 100%;
     padding: 20px;
+    margin-bottom:15px ;
     border: 1px solid #ddd;
     border-radius: 5px;
     background-color: #fff;
+    margin-top: 20px;
   }
   .profile-avatar {
     width: 150px;
     height: 150px;
+    padding: 0 0 10px;
+    margin: 10px;
     border-radius: 50%;
-    margin: 0 auto 20px;
+    margin: 0 auto 15px;
     background-color: #ccc;
   }
+
+  
+  

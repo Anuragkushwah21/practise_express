@@ -1,0 +1,40 @@
+<%- include('../header.ejs')%>
+    <div class="container" style="max-width: 600px; margin: 100px auto;">
+        <h2 class="mb-4 text-center">Course Edit Form</h2>
+        <form action="/collage_update/<%=d._id%>" method="post">
+            <div class="mb-3">
+                <label for="fullName" class="form-label">Full Name</label>
+                <input type="text" value="<%=d.name%>" class="form-control" name="name" placeholder="Enter your full name" required>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email address</label>
+                <input type="email" value="<%=d.email%>" class="form-control" name="email" placeholder="Enter your email" required>
+            </div>
+            <div class="mb-3">
+                <label for="phoneNumber" class="form-label">Phone Number</label>
+                <input type="tel" value="<%=d.phone%>" class="form-control" name="phone" placeholder="Enter your phone number" required>
+            </div>
+            <div class="mb-3">
+                <label for="address" class="form-label">Address</label>
+                <textarea name="address" class="form-control">
+                    <%=d.address%>
+                </textarea>
+            </div>
+            <div class="mb-3">
+                <label for="dateofbirth" class="form-label">Date Of Birth</label>
+                <input type="date" value="<%=d.dob%>" class="form-control" name="dob" placeholder="Enter your address" required>
+            </div>
+            <div>
+                <label>Gender</label>
+                <input type="radio" value="male" name="gender" />Male
+                <input type="radio" value="female" name="gender" />FeMale
+            </div>
+            <div class="mb-3">
+                <label for="collegeCourse" class="form-label">College Course</label>
+                <input type="text" class="form-control" name="course" placeholder="Enter your college course"
+                    required>
+            </div>
+            <button type="submit" class="btn btn-primary">Update</button>
+        </form>
+    </div>
+<%- include('../footer.ejs')%>

@@ -3,23 +3,24 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Desbord</title>
+    <title>Dashboard</title>
     <link
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./css/desbord.css" />
+    <link rel="stylesheet" href="/css/desbord.css" />
     <script
       src="https://kit.fontawesome.com/dcdbbd3571.js"
       crossorigin="anonymous"
     ></script>
   </head>
+
   <body>
     <div>
       <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
         <div class="container">
-          <a class="navbar-brand" href="./">
-            <img class="logo" src="./image/logo.png" alt="Logo" />
+          <a class="navbar-brand" href="/dashboard">
+            <img class="logo" src="/image/logo.png" alt="Logo" />
           </a>
           <button
             class="navbar-toggler"
@@ -35,23 +36,62 @@
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
               <li class="nav-item active">
-                <a class="nav-link" href="./desbord">Home</a>
+                <a class="nav-link" href="/dashboard"
+                  ><i class="fa-solid fa-house"></i>HOME</a
+                >
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="./about">About Us</a>
+                <a class="nav-link" href="/about"
+                  ><i class="fa-solid fa-address-card"></i>ABOUT</a
+                >
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="./course">Course</a>
+                <a class="nav-link" href="/course"
+                  ><i class="fa-solid fa-book"></i>COURSE</a
+                >
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="./contact">Contact Us</a>
+                <a class="nav-link" href="/contact"
+                  ><i class="fa-solid fa-address-book"></i>CONTACT</a
+                >
+              </li>
+              <li class="nav-item my-auto">
+                <a
+                  style="
+                    text-transform: uppercase;
+                    background-color: rgb(251, 249, 251);
+                    border-radius: 10px;
+                    color: white;
+                    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial,
+                      sans-serif;
+                  "
+                  class="nav-link bg navbar-brand ml-5"
+                  href="#"
+                  ><i id="user" class="fa-solid fa-user"></i>
+                  <%=n%>
+                </a>
+              </li>
+              <li class="nav-item dropdown my-auto">
+                <a
+                  href="/profile"
+                  class="nav-link d-block link-body-emphasis text-decoration-none"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  <img
+                    src="<%=i.url%>"
+                    alt="mdo"
+                    width="40"
+                    height="40"
+                    class="rounded-circle"
+                  />
+                </a>
               </li>
             </ul>
-            <a class="navbar-brand ml-5" href="./profile">
-              <i id="user" class="fa-solid fa-user"></i>
-            </a>
-            <a class="navbar-brand ml-5" href="./">
-              <i class="fa-solid fa-right-to-bracket">Login</i>
+            <a class="navbar-brand ml-5" href="/logout">
+              <button class="logout">
+                <i class="fa-solid fa-right-to-bracket"></i>Logout
+              </button>
             </a>
           </div>
         </div>
