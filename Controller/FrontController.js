@@ -136,7 +136,6 @@ class FrontController {
     });
   };
 
-
   //insert data
   static insertReg = async (req, res) => {
     try {
@@ -167,11 +166,14 @@ class FrontController {
               },
             });
             await result.save();
-            if(student){
-              this.sendEmailverify(n,e,user_id)
-            }else{
-            req.flash("success", "Registration Success plz Verify your Email!");
-            res.redirect("/register"); // route url chalta h
+            if (student) {
+              this.sendEmailverify(n, e, user_id);
+            } else {
+              req.flash(
+                "success",
+                "Registration Success plz Verify your Email!"
+              );
+              res.redirect("/register"); // route url chalta h
             }
           } else {
             req.flash("error", "password and confirm password not same");
@@ -188,7 +190,7 @@ class FrontController {
   };
   static Verify_yourEmail = async (req, res) => {
     try {
-      const update=await({})
+      const update = await {};
       res.render("/");
     } catch (error) {
       console.log(error);
@@ -203,14 +205,25 @@ class FrontController {
         if (student != null) {
           const isMatched = await bcrypt.compare(p, student.password);
           if (isMatched) {
-            //token
-            let token = jwt.sign(
-              { ID: student.id },
-              "anuragkushwah9669907552asdfghjkzxcvbnm"
-            );
-            // console.log(token)
-            res.cookie("token", token);
-            res.redirect("/dashboard");
+            if (student.role == "admin") {
+              //token
+              let token = jwt.sign(
+                { ID: student.id },
+                "anuragkushwah9669907552asdfghjkzxcvbnm"
+              );
+              // console.log(token)
+              res.cookie("token", token);
+              res.redirect("/admin/admindashboard");
+            } else {
+              //token
+              let token = jwt.sign(
+                { ID: student.id },
+                "anuragkushwah9669907552asdfghjkzxcvbnm"
+              );
+              // console.log(token)
+              res.cookie("token", token);
+              res.redirect("/dashboard");
+            }
           } else {
             req.flash("error", "Email or Password is not valid");
             res.redirect("/");
